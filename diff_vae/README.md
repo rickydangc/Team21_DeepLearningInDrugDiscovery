@@ -1,10 +1,10 @@
 # Variational Junction Tree Encoder-Decoder
 
-The folder contains the training and testing scripts for variational junction tree encoder-decoder. The trained model is saved in `models/` for all datasets. Sample translations of the test set are provided in `results/` folder. 
+The folder contains the training and testing scripts for variational junction tree encoder-decoder. The origin trained model saved in `models/` for all datasets and the new trained model of logp04 saved in `newmodels\` folder. Sample translations of the test set are provided in `results/` folder. 
 
 Please make sure that this repo can be found by the system by running
 ```
-export PYTHONPATH=$path_to_repo/iclr19-graph2graph
+export PYTHONPATH=$PYTHONPATH:path_to_repo/
 ```
 
 ## Preprocessing
@@ -49,7 +49,7 @@ bash val_scripts/valid_logp04.sh models/logp04 10
 ## Testing
 After finishing cross-validation, you can test the chosen model on the logp04 task by running
 ```
-python decode.py --test ../data/logp04/test.txt --vocab ../data/logp04/vocab.txt --model models/logp04/model.iter-5 | python ../scripts/logp_score > results.logp04
+python decode.py --test ../data/logp04/test.txt --vocab ../data/logp04/vocab.txt --model models/logp04/model.iter-5 | python ../scripts/logp_score.py > results.logp04
 python logp_analyze.py --delta 0.4 < results.logp04
 ```
 You can test our models on all four tasks by running
@@ -67,4 +67,8 @@ success rate 0.605
 DRD2 task: Evaluated on 1000 samples
 success rate 0.781
 ```
-Note that the above results are slightly different from the reported value in the paper. In the paper, we run this evaluation with multiple random seeds and report the average performance. Here we run with just one random seed.
+
+```
+logp04 task: Evaluated on 800 samples
+average improvement 3.62395726357 stdev 1.62283746528
+```
