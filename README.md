@@ -1,4 +1,4 @@
-# Team21_DeepLearningInDrugDiscovery
+# CSE 6250 Big Data Analytics for Healthcare Project - Deep Learning in Drug Discovery
 This repository basically reproduce the result of Learning Multimodal Graph-to-Graph Translation for Molecular Optimization (ICLR 2019)
 
 Original Repository: https://github.com/wengong-jin/iclr19-graph2graph
