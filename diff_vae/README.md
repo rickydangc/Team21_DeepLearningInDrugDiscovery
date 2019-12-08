@@ -1,6 +1,6 @@
 # Variational Junction Tree Encoder-Decoder
 
-The folder contains the training and testing scripts for variational junction tree encoder-decoder. The origin trained model saved in `models/` for all datasets and the new trained model of logp04 saved in `newmodels\` folder. Sample translations of the test set are provided in `results/` folder. 
+The folder contains the training and testing scripts for variational junction tree encoder-decoder. The origin trained model is saved in `models/` for all datasets and the new trained model of logp04 is saved in `newmodels\` folder. Sample translations of the test set are provided in `results/` folder. 
 
 Please make sure that this repo can be found by the system by running
 ```

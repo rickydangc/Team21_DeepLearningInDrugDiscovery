@@ -14,10 +14,11 @@ mv tensor* target-processed
 Let's use QED task as a running example. Suppose your preprocessed translation pairs are saved in `../data/qed/processed` and target domain molecules are saved in `../data/qed/target-processed`. To train our model, run
 ```
 mkdir -p newmodels/qed
-python arae_train.py --train ../data/qed/processed/ --vocab ../data/qed/vocab.txt \ 
---ymols ../data/qed/target-processed/ --save_dir newmodels/qed \ 
+python arae_train.py --train processed/ --vocab ../data/qed/vocab.txt \ 
+--ymols target-processed/ --save_dir newmodels/qed \ 
 --hidden_size 300 --rand_size 8 --epoch 10 --anneal_rate 0.8 | tee newmodels/qed/LOG
 ```
+The running time is much longer than VJTNN, you can use a fast training by setting epoch = 5.
 Here `--ymols` specifies the folder where target domain molecules are stored.
 
 ## Validation
@@ -29,7 +30,7 @@ bash val_scripts/valid_qed.sh models/qed 10
 ## Testing
 After finishing cross-validation, you can test the chosen model on the logp04 task by running
 ```
-python decode.py --test ../data/qed/test.txt --vocab ../data/qed/vocab.txt --model models/qed/model.iter-3 | python ../scripts/qed_score > results.qed
+python decode.py --test ../data/qed/test.txt --vocab ../data/qed/vocab.txt --model models/qed/model.iter-3 | python ../scripts/qed_score.py > results.qed
 python qed_analyze.py < results.qed
 ```
 You can test our models on all four tasks by running
