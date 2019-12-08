@@ -68,7 +68,8 @@ DRD2 task: Evaluated on 1000 samples
 success rate 0.781
 ```
 
+Scale dot product results:
 ```
 logp04 task: Evaluated on 800 samples
-average improvement 3.62395726357 stdev 1.62283746528
+average improvement 3.62395726357 stdev 1.62283746528git 
 ```
